@@ -17,6 +17,7 @@ def currPlayerPlay(board,pos):
         board[pos-1]=currPlayer
         return True
 
+
 def swapPlayer():
     global currPlayer
     if currPlayer=='O':
@@ -85,8 +86,12 @@ def draw_board():
         x = 50 + col * 100
         y = 100 + row * 100
         if board[i] != '-':#ако клетката е запълнена, а показва на екрана в определеното поле
-            text = font.render(board[i], True, (0, 0, 0))
-            displaysurf.blit(text, (x + 30, y + 20))
+            if board[i]=='X':
+                text = font.render(board[i], True, (45, 151, 13))
+                displaysurf.blit(text, (x + 30, y + 20))
+            else:
+                text = font.render(board[i], True, (225, 42, 42))
+                displaysurf.blit(text, (x + 30, y + 20))
 
 error_message=""
 running = True
@@ -122,6 +127,7 @@ while running:
                                 swapPlayer()
                 else:
                     error_message="Избра си неправилна позиция!\n Опитай отново!" #ако играчът е избрал невалидна позиция, показваме съобщение за грешка и не сменяме играчите
+
 
     pygame.display.update() #опресняваме екрана
     FramePerSec.tick(FPS) #ограничаваме скоростта до 20 кадъра в секунда
