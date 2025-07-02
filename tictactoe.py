@@ -17,7 +17,6 @@ def currPlayerPlay(board,pos):
         board[pos-1]=currPlayer
         return True
 
-
 def swapPlayer():
     global currPlayer
     if currPlayer=='O':
@@ -71,8 +70,7 @@ pygame.display.set_caption("Tic-Tac-Toe")#заглавие на играта
 key_to_pos = {                  #речник кой бутон на коя позиция отговаря
     K_1: 1, K_2: 2, K_3: 3,
     K_4: 4, K_5: 5, K_6: 6,
-    K_7: 7, K_8: 8, K_9: 9,
-}
+    K_7: 7, K_8: 8, K_9: 9}
 
 def draw_grid():
     pygame.draw.line(displaysurf, l, (50, 200), (350, 200), width=5)
@@ -124,7 +122,6 @@ while running:
                                 swapPlayer()
                 else:
                     error_message="Избра си неправилна позиция!\n Опитай отново!" #ако играчът е избрал невалидна позиция, показваме съобщение за грешка и не сменяме играчите
-
 
     pygame.display.update() #опресняваме екрана
     FramePerSec.tick(FPS) #ограничаваме скоростта до 20 кадъра в секунда
