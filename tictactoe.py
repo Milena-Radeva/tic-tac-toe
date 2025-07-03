@@ -116,12 +116,18 @@ while running:
             if event.key in key_to_pos: #ако този клавиш е в речника
                 pos = key_to_pos[event.key] #взимаме позицията от речника
                 if currPlayerPlay(board, pos): #играем хода
+                    displaysurf.fill(f)  # фона отзад
+                    draw_grid()  # линиите на полето за игра
+                    draw_board()
                     error_message="" #няма съобщение за показване
                     checkWinner()#проверяваме дали има победител
                     if gameRunning:
                         swapPlayer() #ако играта продължава, сменяме играча
                         if currPlayer=='O':
+
                             computer()
+                            pygame.display.update()
+                            pygame.time.delay(1000)
                             checkWinner()
                             if gameRunning:
                                 swapPlayer()
